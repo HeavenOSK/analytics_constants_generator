@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:args/args.dart';
+import 'package:csv/csv.dart';
 
 ArgResults argResults;
 int exitCode;
@@ -15,10 +16,13 @@ void main(List<String> arguments) async {
     return;
   }
   final path = paths.first;
-  final text = utf8.decoder.bind(File(path).openRead());
+  final csv = utf8.decoder.bind(File(path).openRead());
+  final parser = CsvToListConverter();
   try {
-    await for (var txt in text) {
-      print(txt);
+    await for (var txt in csv) {
+      for (var line in parser.convert(txt)) {
+        print(line);
+      }
     }
   } catch (_) {
     await _handleError(path);
