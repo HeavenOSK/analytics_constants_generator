@@ -9,8 +9,7 @@ const lineNumber = 'line-number';
 
 void main(List<String> arguments) async {
   exitCode = 0;
-  final parser = ArgParser()..addFlag(lineNumber, negatable: false, abbr: 'n');
-  argResults = parser.parse(arguments);
+  argResults = ArgParser().parse(arguments);
   final paths = argResults.rest;
   if (paths.isEmpty) {
     return;
