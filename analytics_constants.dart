@@ -1,4 +1,11 @@
+class AnalyticsEvent {
+  static const showDialog = _ShowDialogEvent();
+  static const showPage = _ShowPageEvent();
+}
+    
 class _ShowDialogEvent {
+  const _ShowDialogEvent();
+  
   static const name = 'show_dialog';
   static const params = _ShowDialogEventParams();
 }
@@ -18,6 +25,8 @@ class _ShowDialogEventParams {
 
 
 class _ShowPageEvent {
+  const _ShowPageEvent();
+  
   static const name = 'show_page';
   static const params = _ShowPageEventParams();
 }
@@ -33,5 +42,6 @@ class _ShowPageEventParams {
   static const value06 = 'value_06';
 
 }
+
 
 

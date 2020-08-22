@@ -1,4 +1,4 @@
-import 'event.dart';
+import 'templates/event.dart';
 
 const _firstEventLineIndex = 1;
 

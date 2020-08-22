@@ -35,6 +35,8 @@ class Event {
   @override
   String toString() {
     return '''class $className {
+  const $className();
+  
   static const name = '$name';
   static const params = ${params.className}();
 }
