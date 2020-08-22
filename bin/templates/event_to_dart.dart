@@ -4,11 +4,11 @@ import 'event.dart';
 
 String eventToDart(Event event) {
   var code = '\n';
-  final eventClassName = '${ReCase(event.name).pascalCase}Event';
+  final eventClassName = '${ReCase(event.eventName).pascalCase}Event';
   final paramsClassName = '_${eventClassName}Params';
 
   code += '''class $eventClassName {
-  static const name = '${event.name}';
+  static const name = '${event.eventName}';
   static const params = $paramsClassName();
 }
 

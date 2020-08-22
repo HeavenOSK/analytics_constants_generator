@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:args/args.dart';
 import 'package:csv/csv.dart';
 
-import 'event_to_dart.dart';
+import 'templates/event_to_dart.dart';
 import 'parser.dart';
 
 ArgResults argResults;

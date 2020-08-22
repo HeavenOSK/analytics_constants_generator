@@ -1,4 +1,4 @@
-import 'event.dart';
+import 'templates/event.dart';
 
 class Generator{
   final List<Event> events;
