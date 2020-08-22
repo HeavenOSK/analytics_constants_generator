@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:csv/csv.dart';
 
 import '../generator.dart';
-import 'event_to_dart.dart';
 import 'parser.dart';
 
 class DartGenerator implements GeneratorInterface {
@@ -14,7 +13,7 @@ class DartGenerator implements GeneratorInterface {
   @override
   Future<void> generate() async {
     final events = Parser(csv).parse();
-    final output = events.map(eventToDart).join();
+    final output = events.map((_) => _.toString()).join();
     final targetFile = File('analytics_constants.dart');
     await targetFile.writeAsString(output, mode: FileMode.write);
   }
