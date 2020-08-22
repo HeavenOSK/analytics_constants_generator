@@ -1,2 +1,3 @@
 No.,event_name,params_01,params_02,params_03,params_04,params_05,params_06,params_07,params_08,params_09,params_10
-1,show_dialog,value_01,value_02,value_04,value_05,,,,,,
+1,show_dialog,value_01,value_02,value_03,value_04,value_05,value_06,value_07,,,
+2,show_page,value_01,value_02,value_03,value_04,value_05,value_06,,,,

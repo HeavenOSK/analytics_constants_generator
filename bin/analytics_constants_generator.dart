@@ -4,8 +4,8 @@ import 'dart:io';
 import 'package:args/args.dart';
 import 'package:csv/csv.dart';
 
-import 'event_to_dart.dart';
-import 'parser.dart';
+import 'dart_generator/generator.dart';
+
 
 ArgResults argResults;
 int exitCode;
@@ -19,14 +19,16 @@ void main(List<String> arguments) async {
     return;
   }
   final path = paths.first;
-  final raw = utf8.decoder.bind(File(path).openRead());
-  final converter = CsvToListConverter();
-  await for (var txt in raw) {
-    final csv = converter.convert(txt);
-    final events = Parser(csv).parse();
-    for (var event in events) {
-      print(eventToDart(event));
+  try {
+    final raw = utf8.decoder.bind(File(path).openRead());
+    final converter = CsvToListConverter();
+    await for (var txt in raw) {
+      final csv = converter.convert(txt);
+      final generator = DartGenerator(csv);
+      await generator.generate();
     }
+  } catch (_) {
+    await _handleError(path);
   }
 }
 

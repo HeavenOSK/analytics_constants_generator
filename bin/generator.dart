@@ -1,7 +1,3 @@
-import 'event.dart';
-
-class Generator{
-  final List<Event> events;
-
-  Generator(this.events);
+abstract class GeneratorInterface {
+  Future<void> generate();
 }
